@@ -1,17 +1,17 @@
 Actinium Project
-==============
 
-# Project name
+
+## Project name
 
 Labyrinth-5
 
-# Team members
+## Team members
 
 - rnikiforova
 - ivailok1
 - stoian.dosev
 - mortal
 
-# Deadline
+## Deadline
 
 17 / 05 / 2013, 23:59
