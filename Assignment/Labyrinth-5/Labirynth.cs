@@ -6,7 +6,7 @@ namespace LabirynthGame
 	// tuka polzvame edna biblioteka - PowerCollections - moze da ya namerite v gugal - ima sortiran re4nik, mnogo udobno za klasaciata
     class Labirynth
     {
-        private const int sz = 7;
+        private const int size = 7;
         private const int px = 3;
         private const int py = 3;
         private const int MinimumPercentageOfBlockedCells = 30;
@@ -57,7 +57,7 @@ namespace LabirynthGame
         }
         private bool IsMoveValid(int x, int y)
         {
-            if (x < 0 || x > sz - 1 || y < 0 || y > sz - 1)
+            if (x < 0 || x > size - 1 || y < 0 || y > size - 1)
             {
                 return false;
             }
@@ -66,9 +66,9 @@ namespace LabirynthGame
         }
         private void PrintLabirynth()
         {
-            for (int row = 0; row < sz; row++)
+            for (int row = 0; row < size; row++)
             {
-                for (int col = 0; col < sz; col++)
+                for (int col = 0; col < size; col++)
                 {
                     Console.Write("{0,2}", this.matrix[row, col]);
                 }
@@ -77,13 +77,13 @@ namespace LabirynthGame
         }
         private char[,] GenerateMatrix()
         { 
-            char[,] generatedMatrix = new char[sz, sz];
+            char[,] generatedMatrix = new char[size, size];
             Random rand = new Random();
             int percentageOfBlockedCells = rand.Next(MinimumPercentageOfBlockedCells, MaximumPercentageOfBlockedCells);
 
-            for (int row = 0; row < sz; row++)
+            for (int row = 0; row < size; row++)
             {
-                for (int col = 0; col < sz; col++)
+                for (int col = 0; col < size; col++)
                 {
                     int num = rand.Next(0, 100);
                     if (num < percentageOfBlockedCells)
@@ -121,8 +121,8 @@ namespace LabirynthGame
 
                 for (int d = 0; d < times; d++)
                 {
-                    if (pathX + dirX[num] >= 0 && pathX + dirX[num] < sz && pathY + dirY[num] >= 0 &&
-                        pathY + dirY[num] < sz)
+                    if (pathX + dirX[num] >= 0 && pathX + dirX[num] < size && pathY + dirY[num] >= 0 &&
+                        pathY + dirY[num] < size)
                     {
 
 
@@ -143,8 +143,8 @@ namespace LabirynthGame
 
         private bool IsGameOver(int playerPositionX, int playerPositionY)
         {
-            if ((playerPositionX > 0 && playerPositionX < sz-1) && 
-                (playerPositionY > 0 && playerPositionY < sz-1))
+            if ((playerPositionX > 0 && playerPositionX < size-1) && 
+                (playerPositionY > 0 && playerPositionY < size-1))
             {
                 return false;
             }
