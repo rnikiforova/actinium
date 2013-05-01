@@ -8,3 +8,10 @@ C:\Users\Stoian Dosev\Documents\GitHub\actinium\Assignment\Labyrinth-5\bin\Debug
 C:\Users\mortal\Documents\GitHub\actinium\Assignment\Labyrinth-5\bin\Debug\LabirynthGame.exe.config
 C:\Users\mortal\Documents\GitHub\actinium\Assignment\Labyrinth-5\obj\x86\Debug\LabirynthGame.exe
 C:\Users\mortal\Documents\GitHub\actinium\Assignment\Labyrinth-5\obj\x86\Debug\LabirynthGame.pdb
+D:\My files\_GITHUB\actinium\Assignment\Labyrinth-5\bin\Debug\LabirynthGame.exe.config
+D:\My files\_GITHUB\actinium\Assignment\Labyrinth-5\obj\x86\Debug\LabirynthGame.exe
+D:\My files\_GITHUB\actinium\Assignment\Labyrinth-5\obj\x86\Debug\LabirynthGame.pdb
+D:\My files\_GITHUB\actinium\Assignment\Labyrinth-5\bin\Debug\LabirynthGame.exe
+D:\My files\_GITHUB\actinium\Assignment\Labyrinth-5\bin\Debug\LabirynthGame.pdb
+D:\My files\_GITHUB\actinium\Assignment\Labyrinth-5\bin\Debug\PowerCollections.dll
+D:\My files\_GITHUB\actinium\Assignment\Labyrinth-5\obj\x86\Debug\Code Quality - Project 1.csprojResolveAssemblyReference.cache

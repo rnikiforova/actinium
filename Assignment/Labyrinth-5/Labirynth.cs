@@ -6,7 +6,6 @@ namespace LabirynthGame
 	// tuka polzvame edna biblioteka - PowerCollections - moze da ya namerite v gugal - ima sortiran re4nik, mnogo udobno za klasaciata
     class Labirynth
     {
-        int test = 7;
         private const int size = 7;
         private const int px = 3;
         private const int py = 3;
