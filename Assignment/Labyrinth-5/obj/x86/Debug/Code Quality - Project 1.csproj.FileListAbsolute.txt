@@ -5,3 +5,6 @@ C:\Users\Stoian Dosev\Documents\GitHub\actinium\Assignment\Labyrinth-5\obj\x86\D
 C:\Users\Stoian Dosev\Documents\GitHub\actinium\Assignment\Labyrinth-5\obj\x86\Debug\LabirynthGame.exe
 C:\Users\Stoian Dosev\Documents\GitHub\actinium\Assignment\Labyrinth-5\obj\x86\Debug\LabirynthGame.pdb
 C:\Users\Stoian Dosev\Documents\GitHub\actinium\Assignment\Labyrinth-5\bin\Debug\LabirynthGame.exe.config
+C:\Users\mortal\Documents\GitHub\actinium\Assignment\Labyrinth-5\bin\Debug\LabirynthGame.exe.config
+C:\Users\mortal\Documents\GitHub\actinium\Assignment\Labyrinth-5\obj\x86\Debug\LabirynthGame.exe
+C:\Users\mortal\Documents\GitHub\actinium\Assignment\Labyrinth-5\obj\x86\Debug\LabirynthGame.pdb
