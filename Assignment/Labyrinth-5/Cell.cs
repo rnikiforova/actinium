@@ -8,5 +8,6 @@ namespace LabirynthGame
 {
     class Cell
     {
+        private int number = 0;
     }
 }
