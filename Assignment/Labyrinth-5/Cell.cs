@@ -9,5 +9,6 @@ namespace LabirynthGame
     class Cell
     {
         private int number = 0;
+        private string name = null;
     }
 }
