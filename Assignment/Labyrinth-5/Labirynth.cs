@@ -4,6 +4,7 @@ using Wintellect.PowerCollections;
 namespace LabirynthGame
 {
 	// tuka polzvame edna biblioteka - PowerCollections - moze da ya namerite v gugal - ima sortiran re4nik, mnogo udobno za klasaciata
+	// test Raly
     class Labirynth
     {
         private const int size = 7;
