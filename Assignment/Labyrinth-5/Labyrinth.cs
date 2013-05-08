@@ -10,23 +10,18 @@ namespace LabirynthGame
         private const int PositionY = 3;
         private const int MinimumBlockedCellsCount = 30;
         private const int MaximumBlockedCellsCount = 50;
-
         const char BlockedCellSymbol = 'X';
         const char FreeCellSymbol = '-';
         const char PlayerSymbol = '*';
-
         
         private char[,] labyrinth;
-        private OrderedMultiDictionary<int, string> scoreBoard;
-
-
+        
         public Labyrinth()
         {
             this.labyrinth = this.GenerateLabyrinthMatrix();
-            this.scoreBoard = new OrderedMultiDictionary<int, string>(true);
         }
 
-        public void PrintLabirynth()
+        public void PrintLabyrinth()
         {
             for (int row = 0; row < LabyrinthSize; row++)
             {
@@ -84,21 +79,21 @@ namespace LabirynthGame
             int pathY = PositionY;
             int[] directionX = { 0, 0, 1, -1 };
             int[] directionY = { 1, -1, 0, 0 };
-            int directions = 4;
+            int basicDirections = 4;
             int maximumTimesToChange = 2;
 
             while (this.IsGameOver(pathX, pathY) == false)
             {
-                int num = randumGenerator.Next(0, directions);
+                int direction = randumGenerator.Next(0, basicDirections);
                 int times = randumGenerator.Next(0, maximumTimesToChange);
 
-                for (int d = 0; d < times; d++)
+                for (int i = 0; i < times; i++)
                 {
-                    if (pathX + directionX[num] >= 0 && pathX + directionX[num] < LabyrinthSize && pathY + directionY[num] >= 0 &&
-                        pathY + directionY[num] < LabyrinthSize)
+                    if (pathX + directionX[direction] >= 0 && pathX + directionX[direction] < LabyrinthSize && pathY + directionY[direction] >= 0 &&
+                        pathY + directionY[direction] < LabyrinthSize)
                     {
-                        pathX += directionX[num];
-                        pathY += directionY[num];
+                        pathX += directionX[direction];
+                        pathY += directionY[direction];
 
                         if (generatedMatrix[pathY, pathX] == PlayerSymbol)
                         {
