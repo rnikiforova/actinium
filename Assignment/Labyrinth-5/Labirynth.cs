@@ -5,7 +5,7 @@ namespace LabirynthGame
 {
 	// tuka polzvame edna biblioteka - PowerCollections - moze da ya namerite v gugal - ima sortiran re4nik, mnogo udobno za klasaciata
 	// test Raly
-    class Labirynth
+    public class Labirynth
     {
         private const int size = 7;
         private const int px = 3;
@@ -142,7 +142,7 @@ namespace LabirynthGame
             }
         }
 
-        private bool IsGameOver(int playerPositionX, int playerPositionY)
+        public bool IsGameOver(int playerPositionX, int playerPositionY)
         {
             if ((playerPositionX > 0 && playerPositionX < size-1) && 
                 (playerPositionY > 0 && playerPositionY < size-1))
