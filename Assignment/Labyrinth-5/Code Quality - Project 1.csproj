@@ -52,6 +52,7 @@
     <Compile Include="Cell.cs" />
     <Compile Include="LabirynthTest.cs" />
     <Compile Include="Labirynth.cs" />
+    <Compile Include="Labyrinth.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Properties\" />
