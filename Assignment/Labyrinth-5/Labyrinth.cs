@@ -14,7 +14,7 @@ namespace LabirynthGame
         const char FreeCellSymbol = '-';
         const char PlayerSymbol = '*';
 
-        private char[,] matrix;
+        private Cell[,] matrix;
 
         // TODO - Connect with the field
         public int Size { get; set; }
@@ -39,7 +39,7 @@ namespace LabirynthGame
 
         private char[,] GenerateLabyrinthMatrix()
         {
-            char[,] labyrinthMatrix = new char[size, size];
+            Cell[,] labyrinthMatrix = new Cell[size, size];
             Random randomGenerator = new Random();
             int labyrinthBlockedCellsCount = randomGenerator.Next(MinimumBlockedCellsCount, MaximumBlockedCellsCount);
 
@@ -80,7 +80,7 @@ namespace LabirynthGame
             return true;
         }
 
-        private void AssureReachableExit(char[,] generatedMatrix)
+        private void AssureReachableExit(Cell[,] generatedMatrix)
         {
             Random randumGenerator = new Random();
             int pathX = PositionX;

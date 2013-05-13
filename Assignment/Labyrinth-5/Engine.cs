@@ -71,7 +71,7 @@ namespace LabirynthGame
                     {
                         this.player.X = px;
                         this.player.Y = py;
-                        this.field = this.GenerateMatrix();
+                        this.StartGame();
 
                         break;
                     }
@@ -94,7 +94,7 @@ namespace LabirynthGame
             }
         }
 
-        private void Move(uint dirX, uint dirY)
+        private void Move(int dirX, int dirY)
         {
 
             if (this.IsMoveValid(this.player.X + dirX, this.player.Y + dirY) == false)
@@ -102,7 +102,7 @@ namespace LabirynthGame
                 return;
             }
 
-            if (this.field[this.player.Y + dirY, this.player.X + dirX] == BlockedCell)
+            if (this.field[this.player.Y + dirY, this.player.X + dirX] == typeof(BlockedCell))
             {
                 Console.WriteLine("Invalid Move!");
                 Console.WriteLine("**Press a key to continue**");
@@ -111,14 +111,20 @@ namespace LabirynthGame
             }
             else
             {
+                // Player left cell
+                // AddObject(player.x, player.y, freecell)
                 this.field[this.player.X, this.player.Y] = FreeCell;
+
+                // Player's new cell
                 this.field[this.player.Y + dirY, this.player.X + dirX] = PlayerSign;
+
                 this.player.Y += dirY;
                 this.player.X += dirX;
                 return;
             }
         }
-        private bool IsMoveValid(uint x, uint y)
+
+        private bool IsMoveValid(int x, int y)
         {
             if (x < 0 || x > this.labyrinth.Size - 1 || y < 0 || y > this.labyrinth.Size - 1)
             {
