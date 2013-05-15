@@ -6,23 +6,18 @@ using System.Threading.Tasks;
 
 namespace LabirynthGame
 {
-    public class Player
+    public class Player : GameObject
     {
-        public const string symbol = "*";
-        private int x;
-        private int y;
-
-        public Player(int x, int y)
+        public Player(char symbol, int row, int col)
+            : base(symbol, row, col)
         {
-            this.X = x;
-            this.Y = y;
+            
         }
 
-        // TODO - Validation
-        public int X { get; set; }
-
-        // TODO - Validation
-        public int Y { get; set; }       
-        
+        public void Update(Coords coords)
+        {
+            this.Row += coords.Row;
+            this.Col += coords.Col;
+        }
     }
 }

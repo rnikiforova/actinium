@@ -7,79 +7,71 @@ using System.Threading.Tasks;
 namespace LabirynthGame
 {
     public class Engine
-    {
-        private Labyrinth labyrinth;
-        private Player player;
+    {       
+        
         private char[,] field;
+        private int movesCounter;
+
+        public Player Player { get;  set; }
+        public IRenderer Renderer { get;  set; }
+        public IController Controller { get;  set; }
+
+        public Engine(Player player, IRenderer renderer, IController controller)
+        {
+            this.Player = player;
+            this.Renderer = renderer;
+            this.Controller = controller;
+        }
 
         public void StartGame()
         {
+            bool isGameOn = true;
 
-        }
+            while (isGameOn == true)
+            {
+                this.Renderer.AddObject(this.Player);                
+                this.Renderer.Render();
 
-        public void Initialize()
+                Console.Write("Enter your move (L=left, R-right, U=up, D=down):");
+                string currentLine = Console.ReadLine();
+                this.ExecuteCommand(currentLine);
+            }
+        }       
+        
+
+        private void ExecuteCommand(string cmd)
         {
-            // labyrinth.matrix = field;
-            // this.AddObject(player);
-            this.Render();
-        }
-
-        public void AddPlayer()
-        {
-            // this.AddObject();
-        }
-
-        public void AddObject()
-        {
-
-            //this.field[object.x, object.y] = object.symbol;
-        }
-
-        public void Render()
-        {
-        }
-
-        private void ExecuteCommand(string command, ref int movesCounter)
-        {
-            switch (command.ToUpper())
+            switch (cmd.ToUpper())
             {
                 case "L":
-                    {
-                        movesCounter++;
-                        Move(-1, 0);
-                        break;
-                    }
                 case "R":
-                    {
-                        movesCounter++;
-                        Move(1, 0);
-                        break;
-                    }
                 case "U":
-                    {
-                        movesCounter++;
-                        Move(0, -1);
-                        break;
-                    }
                 case "D":
                     {
-                        movesCounter++;
-                        Move(0, 1);
-                        break;
-                    }
-                case "RESTART":
-                    {
-                        this.player.X = px;
-                        this.player.Y = py;
-                        this.StartGame();
+                        Coords oldCoords = new Coords(this.Player.Row, this.Player.Col);                        
+                        Coords newPlayerCoord = this.Controller.ProcessInput(cmd);      
+                        this.Player.Update(newPlayerCoord);
 
+                        if (this.Renderer.IsGameOver(this.Player) == false)
+                        {
+                            this.Renderer.RemoveObject(oldCoords);
+                        }                        
+                        
                         break;
                     }
-                case "TOP":
-                    {
-                        this.PrintScore();
-                        break;
-                    }
+                //case "RESTART":
+                //    {
+                //        this.PlayerPositionX = px;
+                //        this.PlayerPositionY = py;
+                //        this.matrix = this.GenerateMatrix();
+
+                //        break;
+                //    }
+                //case "TOP":
+                //    {
+                //        this.PrintScore();
+                //        break;
+                //    }
                 case "EXIT":
                     {
                         break;
@@ -92,46 +84,6 @@ namespace LabirynthGame
                         break;
                     }
             }
-        }
-
-        private void Move(int dirX, int dirY)
-        {
-
-            if (this.IsMoveValid(this.player.X + dirX, this.player.Y + dirY) == false)
-            {
-                return;
-            }
-
-            if (this.field[this.player.Y + dirY, this.player.X + dirX] == typeof(BlockedCell))
-            {
-                Console.WriteLine("Invalid Move!");
-                Console.WriteLine("**Press a key to continue**");
-                Console.ReadKey();
-                return;
-            }
-            else
-            {
-                // Player left cell
-                // AddObject(player.x, player.y, freecell)
-                this.field[this.player.X, this.player.Y] = FreeCell;
-
-                // Player's new cell
-                this.field[this.player.Y + dirY, this.player.X + dirX] = PlayerSign;
-
-                this.player.Y += dirY;
-                this.player.X += dirX;
-                return;
-            }
-        }
-
-        private bool IsMoveValid(int x, int y)
-        {
-            if (x < 0 || x > this.labyrinth.Size - 1 || y < 0 || y > this.labyrinth.Size - 1)
-            {
-                return false;
-            }
-
-            return true;
         }
 
         

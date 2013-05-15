@@ -6,8 +6,8 @@ using System.Threading.Tasks;
 
 namespace LabirynthGame
 {
-    abstract class Cell
-    {
-        protected const string symbol = ".";
-    }
+    //abstract class Cell
+    //{
+    //    protected const string symbol = ".";
+    //}
 }

@@ -51,8 +51,14 @@
   <ItemGroup>
     <Compile Include="BlockedCell.cs" />
     <Compile Include="Cell.cs" />
+    <Compile Include="ConsoleRenderer.cs" />
+    <Compile Include="Coords.cs" />
     <Compile Include="Engine.cs" />
     <Compile Include="FreeCell.cs" />
+    <Compile Include="GameObject.cs" />
+    <Compile Include="IController.cs" />
+    <Compile Include="IRenderer.cs" />
+    <Compile Include="KeyboardController.cs" />
     <Compile Include="LabirynthTest.cs" />
     <Compile Include="Labirynth.cs" />
     <Compile Include="Labyrinth.cs" />

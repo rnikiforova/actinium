@@ -6,8 +6,8 @@ using System.Threading.Tasks;
 
 namespace LabirynthGame
 {
-    public class FreeCell : Cell
-    {
-        public new const string symbol = "-";
-    }
+    //public class FreeCell : Cell
+    //{
+    //    public new const string symbol = "-";
+    //}
 }
