@@ -1,0 +1,7 @@
+D:\My files\_GITHUB\actinium\Assignment\Labyrinth-5\bin\Debug\LabirynthGame.exe.config
+D:\My files\_GITHUB\actinium\Assignment\Labyrinth-5\bin\Debug\LabirynthGame.exe
+D:\My files\_GITHUB\actinium\Assignment\Labyrinth-5\bin\Debug\LabirynthGame.pdb
+D:\My files\_GITHUB\actinium\Assignment\Labyrinth-5\bin\Debug\PowerCollections.dll
+D:\My files\_GITHUB\actinium\Assignment\Labyrinth-5\obj\x86\Debug\LabirynthGame.exe
+D:\My files\_GITHUB\actinium\Assignment\Labyrinth-5\obj\x86\Debug\LabirynthGame.pdb
+D:\My files\_GITHUB\actinium\Assignment\Labyrinth-5\obj\x86\Debug\LabirynthGame.csprojResolveAssemblyReference.cache

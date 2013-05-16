@@ -5,7 +5,7 @@ namespace LabirynthGame
 {
 	// tuka polzvame edna biblioteka - PowerCollections - moze da ya namerite v gugal - ima sortiran re4nik, mnogo udobno za klasaciata
 	// test Raly
-    class Labirynth
+    class OrignalCode
     {
         private const int size = 7;
         private const int px = 3;
@@ -24,7 +24,7 @@ namespace LabirynthGame
         private OrderedMultiDictionary<int, string> scoreBoard;
        
 
-        public Labirynth()
+        public OrignalCode()
         {
             this.playerPositionX = px;
             this.playerPositionY = py;

@@ -8,12 +8,6 @@ namespace LabirynthGame
 {
     public interface IRenderer
     {
-        void Render();
-
-        void AddObject(GameObject gameObject);
-
-        void RemoveObject(Coords coords);
-
-        bool IsGameOver(GameObject coords);
+        void Render(IField field);
     }
 }
