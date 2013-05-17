@@ -49,7 +49,9 @@ namespace LabirynthGame
                 {
                     this.ScoreBoard.Add(this.Player);
                     Console.WriteLine(this.ScoreBoard);
+                    this.Player = new Player('*', 3, 3);
                     Console.WriteLine("Game over!");
+                    this.StartGame();
                 }
                 Console.Write("Enter your move (L=left, R=right, U=up, D=down):");
                 string currentLine = Console.ReadLine();

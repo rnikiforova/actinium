@@ -1,8 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 
 namespace LabirynthGame
 {
@@ -49,23 +46,7 @@ namespace LabirynthGame
                 }
             }
         }
-
-        /// <summary>
-        /// Outputs the allowed chars for use in the exception
-        /// </summary>
-        /// <returns>string of chars symbols</returns>
-        private static string PrintAllowedChars()
-        {
-            StringBuilder allowerdCharsSb = new StringBuilder();
-
-            for (int charIndex = 33; charIndex < 45; charIndex++)
-            {
-                allowerdCharsSb.AppendFormat("{0,2}", (char)charIndex);
-            }
-
-            return allowerdCharsSb.ToString();
-        }        
-        
+      
         public int Row 
         {
             get
@@ -103,8 +84,23 @@ namespace LabirynthGame
                 {
                     this.col = value;
                 }
-            }
-        
+            }        
         }
+
+        /// <summary>
+        /// Outputs the allowed chars for use in the exception
+        /// </summary>
+        /// <returns>string of chars symbols</returns>
+        private static string PrintAllowedChars()
+        {
+            StringBuilder allowerdCharsSb = new StringBuilder();
+
+            for (int charIndex = 33; charIndex < 45; charIndex++)
+            {
+                allowerdCharsSb.AppendFormat("{0,2}", (char)charIndex);
+            }
+
+            return allowerdCharsSb.ToString();
+        }    
     }
 }

@@ -123,7 +123,7 @@ namespace RendererTests
         public void RenderTest()
         {
             Labyrinth lab = new Labyrinth(4);
-
+            
             char[,] testMatrix = new char[,] {
                  {'-', 'X', '-', 'X'},
                  {'-', '-', '-', 'X'},                 

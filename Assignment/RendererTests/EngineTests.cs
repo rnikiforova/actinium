@@ -5,7 +5,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 namespace RendererTests
 {
     [TestClass]
-    public class Engine
+    public class EngineTests
     {
         [TestMethod]
         public void InitEngineTest()
@@ -15,7 +15,7 @@ namespace RendererTests
             IController controller = new KeyboardController();
             ScoreBoard scoreBoard = new ScoreBoard();
 
-           // Engine engine = new Engine(player, renderer, controller, scoreBoard);
+            Engine engine = new Engine(player, renderer, controller, scoreBoard);
         }
 
 

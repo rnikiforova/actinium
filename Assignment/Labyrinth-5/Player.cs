@@ -68,6 +68,6 @@ namespace LabirynthGame
             this.Col = InitCoords.Col;
         }
               
-        private Coords InitCoords { get; set; }
+        public Coords InitCoords { get; set; }
     }
 }
