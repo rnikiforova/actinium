@@ -3,46 +3,59 @@ using Wintellect.PowerCollections;
 
 namespace LabirynthGame
 {
-    public class Labyrinth
+    /// <summary>
+    /// The Labyrinth class which generates the playfield-labyrinth and assuring the correct state of the labyrint
+    /// </summary>
+    public class Labyrinth : IField
     {
-        private const int LabyrinthSize = 7;
-        private const int PositionX = 3;
-        private const int PositionY = 3;
         private const int MinimumBlockedCellsCount = 30;
         private const int MaximumBlockedCellsCount = 50;
         const char BlockedCellSymbol = 'X';
         const char FreeCellSymbol = '-';
-        const char PlayerSymbol = '*';
-        
-        private char[,] labyrinth;
-        
-        public Labyrinth()
+        private int size;
+
+        /// <summary>
+        /// Constructor
+        /// </summary>
+        /// <param name="size">size</param>
+        public Labyrinth(int size)
         {
-            this.labyrinth = this.GenerateLabyrinthMatrix();
+            this.Size = size;
+            this.matrix = this.GenerateMatrix();
         }
 
-        public void PrintLabyrinth()
-        {
-            for (int row = 0; row < LabyrinthSize; row++)
+        public int Size {
+            get
             {
-                for (int col = 0; col < LabyrinthSize; col++)
+                return this.size;
+            }
+            private set
+            {
+                if (value < 1)
                 {
-                    Console.Write("{0,2}", this.labyrinth[row, col]);
+                    throw new ArgumentOutOfRangeException("The size of the labyrinth cannot be negative or zero.");
                 }
-                Console.WriteLine();
+                this.size = value;
             }
         }
-        private char[,] GenerateLabyrinthMatrix()
-        {
-            char[,] labyrinthMatrix = new char[LabyrinthSize, LabyrinthSize];
-            Random randumGenerator = new Random();
-            int labyrinthBlockedCellsCount = randumGenerator.Next(MinimumBlockedCellsCount, MaximumBlockedCellsCount);
 
-            for (int row = 0; row < LabyrinthSize; row++)
+        private char[,] matrix;       
+
+        /// <summary>
+        /// Generates randum elements for the labyrinth matrix
+        /// </summary>
+        private static Random randomGenerator = new Random();
+        private char[,] GenerateMatrix()
+        {
+            char[,] labyrinthMatrix = new char[this.Size, this.Size];
+            
+            int labyrinthBlockedCellsCount = randomGenerator.Next(MinimumBlockedCellsCount, MaximumBlockedCellsCount);
+
+            for (int row = 0; row < this.Size; row++)
             {
-                for (int col = 0; col < LabyrinthSize; col++)
+                for (int col = 0; col < this.Size; col++)
                 {
-                    int cellNumber = randumGenerator.Next(0, 100);
+                    int cellNumber = randomGenerator.Next(0, 100);
                     if (cellNumber < labyrinthBlockedCellsCount)
                     {
                         labyrinthMatrix[row, col] = BlockedCellSymbol;
@@ -54,17 +67,47 @@ namespace LabirynthGame
                 }
             }
 
-            labyrinthMatrix[PositionY, PositionX] = PlayerSymbol;
-            this.AssureReachableExit(labyrinthMatrix);
-            Console.WriteLine("Welcome to “Labirinth” game. Please try to escape. Use 'top' to view the top");
-            Console.WriteLine("scoreboard, 'restart' to start a new game and 'exit' to quit the game.");
+            char[,] copyMatrix = (char[,])labyrinthMatrix.Clone();
+
+            bool exit = this.AssureReachableExit(copyMatrix, 3, 3);
+
+            if (exit == false)
+            {
+                GenerateMatrix();
+            }
+
+            if (labyrinthMatrix[3, 3] != FreeCellSymbol)
+            {
+                labyrinthMatrix[3, 3] = FreeCellSymbol;    
+            }            
+
             return labyrinthMatrix;
         }
 
-        public bool IsGameOver(int playerPositionX, int playerPositionY)
+        /// <summary>
+        /// Move object Player in to tha labyrinth
+        /// </summary>
+        /// <param name="gameObject">Player instance</param>
+        public void AddObject(GameObject gameObject)
         {
-            if ((playerPositionX > 0 && playerPositionX < LabyrinthSize - 1) &&
-                (playerPositionY > 0 && playerPositionY < LabyrinthSize - 1))
+            if (this.matrix[gameObject.Row, gameObject.Col] != BlockedCellSymbol)
+            {               
+                this.matrix[gameObject.Row, gameObject.Col] = gameObject.Symbol;                
+            }
+            else
+            {
+                Console.WriteLine("Invalid move");
+            }
+        }
+
+        /// <summary>
+        /// The method checks the availability of the next cell 
+        /// </summary>
+        /// <param name="coords">Coordinates</param>
+        /// <returns>Returns true or false</returns>
+        public bool IsPositionAvailable(Coords coords)
+        {
+            if (this[coords.Row, coords.Col] == BlockedCellSymbol)
             {
                 return false;
             }
@@ -72,37 +115,79 @@ namespace LabirynthGame
             return true;
         }
 
-        private void AssureReachableExit(char[,] generatedMatrix)
+        /// <summary>
+        /// The methods checks there is at least one exit from the labyrinth with recursion
+        /// </summary>
+        /// <param name="generatedMatrix">matrix labyrinth</param>
+        /// <param name="row">row</param>
+        /// <param name="col">cal</param>
+        /// <returns></returns>
+        private bool AssureReachableExit(char[,] generatedMatrix, int row, int col)
         {
-            Random randumGenerator = new Random();
-            int pathX = PositionX;
-            int pathY = PositionY;
-            int[] directionX = { 0, 0, 1, -1 };
-            int[] directionY = { 1, -1, 0, 0 };
-            int basicDirections = 4;
-            int maximumTimesToChange = 2;
-
-            while (this.IsGameOver(pathX, pathY) == false)
+            if (row > generatedMatrix.GetLength(0) || row < 0 || col > generatedMatrix.GetLength(1) || col < 0)
             {
-                int direction = randumGenerator.Next(0, basicDirections);
-                int times = randumGenerator.Next(0, maximumTimesToChange);
+                // We are out
+                return false;
+            }
 
-                for (int i = 0; i < times; i++)
+            if (row == generatedMatrix.GetLength(0) - 1 || col == generatedMatrix.GetLength(1) - 1)
+            {
+                // Corner
+                return true;
+            }
+
+            if (generatedMatrix[row, col] == BlockedCellSymbol)
+            {
+                return false;
+            }
+
+            // Mark visited
+            generatedMatrix[row, col] = BlockedCellSymbol;
+
+            // Invoke recursion to explore all possible directions
+              AssureReachableExit(generatedMatrix, row, col - 1); // left
+              AssureReachableExit(generatedMatrix, row - 1, col); // up
+              AssureReachableExit(generatedMatrix, row, col + 1); // right
+              AssureReachableExit(generatedMatrix, row + 1, col); // down
+
+              return true;
+        }
+
+        /// <summary>
+        /// The method removes the last position of the player
+        /// </summary>
+        /// <param name="coords">Coordinates</param>
+        public void RemoveObject(Coords coords)
+        {
+            this.matrix[coords.Row, coords.Col] = '-';
+        }
+
+        /// <summary>
+        /// The methods sets custom matrix indeces to the class
+        /// </summary>
+        /// <param name="row">row</param>
+        /// <param name="col">col</param>
+        /// <returns>char</returns>
+        public char this[int row, int col]
+        {
+            get
+            {
+                return this.matrix[row, col];
+            }
+            set
+            {
+                if (value < 0)
                 {
-                    if (pathX + directionX[direction] >= 0 && pathX + directionX[direction] < LabyrinthSize && pathY + directionY[direction] >= 0 &&
-                        pathY + directionY[direction] < LabyrinthSize)
-                    {
-                        pathX += directionX[direction];
-                        pathY += directionY[direction];
-
-                        if (generatedMatrix[pathY, pathX] == PlayerSymbol)
-                        {
-                            continue;
-                        }
-                        generatedMatrix[pathY, pathX] = FreeCellSymbol;
-                    }
+                    throw new ArgumentOutOfRangeException("The index cannot be negative.");
                 }
+                this.matrix[row, col] = value;
             }
         }
+
+        public void TestMatrix(char[,] testMatrix)
+        {
+            this.matrix = testMatrix;
+        }
+
     }
 }

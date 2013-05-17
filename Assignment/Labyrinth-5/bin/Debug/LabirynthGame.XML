@@ -1,0 +1,227 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>LabirynthGame</name>
+    </assembly>
+    <members>
+        <member name="T:LabirynthGame.IRenderer">
+            <summary>
+            Interface which is inherited from the ConsoleRender class
+            </summary>
+        </member>
+        <member name="M:LabirynthGame.ConsoleRenderer.Render(LabirynthGame.IField)">
+            <summary>
+            The method prints the labyrinth matrix to the console
+            </summary>
+            <param name="field">Field object</param>
+        </member>
+        <member name="T:LabirynthGame.Coords">
+            <summary>
+            The Coords class holds the coordinates which will be used from the other classes(like Player)
+            </summary>
+        </member>
+        <member name="M:LabirynthGame.Coords.#ctor(System.Int32,System.Int32)">
+            <summary>
+            Constructor
+            </summary>
+            <param name="row">row</param>
+            <param name="col">col</param>
+        </member>
+        <member name="T:LabirynthGame.Engine">
+            <summary>
+            The class of Engine makes all the mechanics of the entire game.
+            </summary>
+        </member>
+        <member name="M:LabirynthGame.Engine.#ctor(LabirynthGame.Player,LabirynthGame.IRenderer,LabirynthGame.IController,LabirynthGame.ScoreBoard)">
+            <summary>
+            Constructor
+            </summary>
+            <param name="player">Player instance</param>
+            <param name="renderer">IRender instance</param>
+            <param name="controller">IControler instance</param>
+            <param name="scoreBoard">Scoreboard instance</param>
+        </member>
+        <member name="M:LabirynthGame.Engine.StartGame">
+            <summary>
+            Starts the game execution
+            </summary>
+        </member>
+        <member name="M:LabirynthGame.Engine.IsGameOver(LabirynthGame.Coords)">
+            <summary>
+            The method checks the if the coordinates are out of the labyrinth
+            </summary>
+            <param name="coords">Coord instance</param>
+            <returns>Returns true or false</returns>
+        </member>
+        <member name="M:LabirynthGame.Engine.ExecuteCommand(System.String)">
+            <summary>
+            The method reads and executes the commands from the user
+            </summary>
+            <param name="cmd">input string</param>
+        </member>
+        <member name="T:LabirynthGame.GameObject">
+            <summary>
+            Main class which is parent for the all playing objects(Player class)
+            </summary>
+        </member>
+        <member name="M:LabirynthGame.GameObject.#ctor(System.Char,System.Int32,System.Int32)">
+            <summary>
+            Constructor
+            </summary>
+            <param name="symbol">char symbol for the used with the objects for initialization</param>
+            <param name="row">row</param>
+            <param name="col">col</param>
+        </member>
+        <member name="M:LabirynthGame.GameObject.PrintAllowedChars">
+            <summary>
+            Outputs the allowed chars for use in the exception
+            </summary>
+            <returns>string of chars symbols</returns>
+        </member>
+        <member name="T:LabirynthGame.IController">
+            <summary>
+            Interface which is inherited from the KeyboardController
+            </summary>
+        </member>
+        <member name="T:LabirynthGame.IField">
+            <summary>
+            Interface which is inherited from the 
+            </summary>
+        </member>
+        <member name="T:LabirynthGame.KeyboardController">
+            <summary>
+            The class manages the input from the Engine
+            </summary>
+        </member>
+        <member name="M:LabirynthGame.KeyboardController.MoveLeft">
+            <summary>
+            Updates the coordinates and force the objects which use it to move left in a matrix
+            </summary>
+            <returns>Coordinates</returns>
+        </member>
+        <member name="M:LabirynthGame.KeyboardController.MoveRight">
+            <summary>
+            Updates the coordinates and force the objects which use it to move right in a matrix
+            </summary>
+            <returns>Coordinates</returns>
+        </member>
+        <member name="M:LabirynthGame.KeyboardController.MoveDown">
+            <summary>
+            Updates the coordinates and force the objects which use it to move down in a matrix
+            </summary>
+            <returns>Coordinates</returns>
+        </member>
+        <member name="M:LabirynthGame.KeyboardController.MoveUp">
+            <summary>
+            Updates the coordinates and force the objects which use it to move up in a matrix
+            </summary>
+            <returns>Coordinates</returns>
+        </member>
+        <member name="M:LabirynthGame.KeyboardController.ProcessInput(System.String)">
+            <summary>
+            Process the input from the console
+            </summary>
+            <param name="input">string</param>
+            <returns>returns the four methods for each unput string:MoveLeft(), MoveRight(), MoveUp(), MoveDown()</returns>
+        </member>
+        <member name="T:LabirynthGame.LabirynthTest">
+            <summary>
+            Initialize the game
+            </summary>
+        </member>
+        <member name="T:LabirynthGame.Labyrinth">
+            <summary>
+            The Labyrinth class which generates the playfield-labyrinth and assuring the correct state of the labyrint
+            </summary>
+        </member>
+        <member name="M:LabirynthGame.Labyrinth.#ctor(System.Int32)">
+            <summary>
+            Constructor
+            </summary>
+            <param name="size">size</param>
+        </member>
+        <member name="F:LabirynthGame.Labyrinth.randomGenerator">
+            <summary>
+            Generates randum elements for the labyrinth matrix
+            </summary>
+        </member>
+        <member name="M:LabirynthGame.Labyrinth.AddObject(LabirynthGame.GameObject)">
+            <summary>
+            Move object Player in to tha labyrinth
+            </summary>
+            <param name="gameObject">Player instance</param>
+        </member>
+        <member name="M:LabirynthGame.Labyrinth.IsPositionAvailable(LabirynthGame.Coords)">
+            <summary>
+            The method checks the availability of the next cell 
+            </summary>
+            <param name="coords">Coordinates</param>
+            <returns>Returns true or false</returns>
+        </member>
+        <member name="M:LabirynthGame.Labyrinth.AssureReachableExit(System.Char[0:,0:],System.Int32,System.Int32)">
+            <summary>
+            The methods checks there is at least one exit from the labyrinth with recursion
+            </summary>
+            <param name="generatedMatrix">matrix labyrinth</param>
+            <param name="row">row</param>
+            <param name="col">cal</param>
+            <returns></returns>
+        </member>
+        <member name="M:LabirynthGame.Labyrinth.RemoveObject(LabirynthGame.Coords)">
+            <summary>
+            The method removes the last position of the player
+            </summary>
+            <param name="coords">Coordinates</param>
+        </member>
+        <member name="P:LabirynthGame.Labyrinth.Item(System.Int32,System.Int32)">
+            <summary>
+            The methods sets custom matrix indeces to the class
+            </summary>
+            <param name="row">row</param>
+            <param name="col">col</param>
+            <returns>char</returns>
+        </member>
+        <member name="T:LabirynthGame.Player">
+            <summary>
+            Player class 
+            </summary>
+        </member>
+        <member name="M:LabirynthGame.Player.#ctor(System.Char,System.Int32,System.Int32)">
+            <summary>
+            Constructor
+            </summary>
+            <param name="symbol">char symbol</param>
+            <param name="row">row</param>
+            <param name="col">col</param>
+        </member>
+        <member name="M:LabirynthGame.Player.Update(LabirynthGame.Coords)">
+            <summary>
+            Updates the coordinates and every time when the method is called it updates the players moves
+            </summary>
+            <param name="coords">Coordinates</param>
+        </member>
+        <member name="T:LabirynthGame.ScoreBoard">
+            <summary>
+            ScoreboardClass
+            </summary>
+        </member>
+        <member name="M:LabirynthGame.ScoreBoard.Add(LabirynthGame.Player)">
+            <summary>
+            The method adds the name of the player when the game is over
+            </summary>
+            <param name="player">Player</param>
+        </member>
+        <member name="M:LabirynthGame.ScoreBoard.Sort">
+            <summary>
+            Sorts the list of results of all player 
+            </summary>
+            <returns>list of players</returns>
+        </member>
+        <member name="M:LabirynthGame.ScoreBoard.ToString">
+            <summary>
+            Overrideng to string
+            </summary>
+            <returns>string</returns>
+        </member>
+    </members>
+</doc>
