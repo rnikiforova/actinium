@@ -1,0 +1,16 @@
+D:\My files\_GITHUB\actinium\Assignment\RendererTests\bin\Debug\RendererTests.dll
+D:\My files\_GITHUB\actinium\Assignment\RendererTests\bin\Debug\RendererTests.pdb
+D:\My files\_GITHUB\actinium\Assignment\RendererTests\bin\Debug\LabirynthGame.exe
+D:\My files\_GITHUB\actinium\Assignment\RendererTests\bin\Debug\PowerCollections.dll
+D:\My files\_GITHUB\actinium\Assignment\RendererTests\bin\Debug\LabirynthGame.pdb
+D:\My files\_GITHUB\actinium\Assignment\RendererTests\obj\Debug\RendererTests.csprojResolveAssemblyReference.cache
+D:\My files\_GITHUB\actinium\Assignment\RendererTests\obj\Debug\RendererTests.dll
+D:\My files\_GITHUB\actinium\Assignment\RendererTests\obj\Debug\RendererTests.pdb
+C:\Users\Stoian Dosev\Documents\GitHub\actinium\Assignment\RendererTests\bin\Debug\RendererTests.dll
+C:\Users\Stoian Dosev\Documents\GitHub\actinium\Assignment\RendererTests\bin\Debug\RendererTests.pdb
+C:\Users\Stoian Dosev\Documents\GitHub\actinium\Assignment\RendererTests\bin\Debug\LabirynthGame.exe
+C:\Users\Stoian Dosev\Documents\GitHub\actinium\Assignment\RendererTests\bin\Debug\LabirynthGame.pdb
+C:\Users\Stoian Dosev\Documents\GitHub\actinium\Assignment\RendererTests\obj\Debug\RendererTests.csprojResolveAssemblyReference.cache
+C:\Users\Stoian Dosev\Documents\GitHub\actinium\Assignment\RendererTests\obj\Debug\RendererTests.dll
+C:\Users\Stoian Dosev\Documents\GitHub\actinium\Assignment\RendererTests\obj\Debug\RendererTests.pdb
+C:\Users\Stoian Dosev\Documents\GitHub\actinium\Assignment\RendererTests\bin\Debug\LabirynthGame.xml
