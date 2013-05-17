@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace LabirynthGame
 {
+    /// <summary>
+    /// Interface which is inherited from the 
+    /// </summary>
     public interface IField
     {
         int Size { get; }

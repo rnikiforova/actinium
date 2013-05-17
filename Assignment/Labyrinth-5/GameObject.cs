@@ -6,12 +6,21 @@ using System.Threading.Tasks;
 
 namespace LabirynthGame
 {
+    /// <summary>
+    /// Main class which is parent for the all playing objects(Player class)
+    /// </summary>
     public class GameObject
     {
         private int row;
         private int col;
         private char symbol;
 
+        /// <summary>
+        /// Constructor
+        /// </summary>
+        /// <param name="symbol">char symbol for the used with the objects for initialization</param>
+        /// <param name="row">row</param>
+        /// <param name="col">col</param>
         public GameObject(char symbol, int row, int col)
         {
             this.Symbol = symbol;
@@ -43,16 +52,18 @@ namespace LabirynthGame
 
         }
 
+        /// <summary>
+        /// Outputs the allowed chars for use in the exception
+        /// </summary>
+        /// <returns>string of chars symbols</returns>
         private static string PrintAllowedChars()
         {
-            StringBuilder allowerdCharsSb = new StringBuilder();            
-           
+            StringBuilder allowerdCharsSb = new StringBuilder();
 
             for (int charIndex = 33; charIndex < 45; charIndex++)
             {
                 allowerdCharsSb.AppendFormat("{0,2}", (char)charIndex);
             }
-
 
             return allowerdCharsSb.ToString();
         }        

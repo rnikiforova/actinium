@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace LabirynthGame
 {
+    /// <summary>
+    /// Interface which is inherited from the KeyboardController
+    /// </summary>
     public interface IController
     {
         Coords MoveLeft();

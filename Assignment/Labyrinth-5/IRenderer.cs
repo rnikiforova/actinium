@@ -6,8 +6,11 @@ using System.Threading.Tasks;
 
 namespace LabirynthGame
 {
+    /// <summary>
+    /// Interface which is inherited from the ConsoleRender class
+    /// </summary>
     public interface IRenderer
     {
-        void Render(IField field);
+        string Render(IField field);
     }
 }

@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace LabirynthGame
 {
+    /// <summary>
+    /// The class of Engine makes all the mechanics of the entire game.
+    /// </summary>
     public class Engine
     {       
         public Player Player { get;  set; }
@@ -15,6 +18,13 @@ namespace LabirynthGame
 
         private IField Labyrinth;        
         
+        /// <summary>
+        /// Constructor
+        /// </summary>
+        /// <param name="player">Player instance</param>
+        /// <param name="renderer">IRender instance</param>
+        /// <param name="controller">IControler instance</param>
+        /// <param name="scoreBoard">Scoreboard instance</param>
         public Engine(Player player, IRenderer renderer, IController controller, ScoreBoard scoreBoard)
         {
             this.Player = player;
@@ -23,36 +33,37 @@ namespace LabirynthGame
             this.ScoreBoard = scoreBoard;
         }
 
+        private static bool isGameOn = true;
+
+        /// <summary>
+        /// Starts the game execution
+        /// </summary>
         public void StartGame()
         {
-            bool isGameOn = true;
             this.Labyrinth = new Labyrinth(7);
 
             while (isGameOn == true)
             {
-                this.Labyrinth.AddObject(this.Player);                
-                this.Renderer.Render(this.Labyrinth);
+                this.Labyrinth.AddObject(this.Player);
+                Console.WriteLine(this.Renderer.Render(this.Labyrinth));
 
                 if (IsGameOver(new Coords(this.Player.Row, this.Player.Col)) == true)
                 {
                     this.ScoreBoard.Add(this.Player);
                     Console.WriteLine(this.ScoreBoard);
                     Console.WriteLine("Game over!");
-                    break;
                 }
-
-                //if (IsGameEnded(new Coords(this.Player.Row, this.Player.Col)) == true)
-                //{
-                //    Console.WriteLine("Ended!");
-                //    break;
-                //}
-
                 Console.Write("Enter your move (L=left, R=right, U=up, D=down):");
                 string currentLine = Console.ReadLine();
                 this.ExecuteCommand(currentLine);
             }
         }
 
+        /// <summary>
+        /// The method checks the if the coordinates are out of the labyrinth
+        /// </summary>
+        /// <param name="coords">Coord instance</param>
+        /// <returns>Returns true or false</returns>
         private bool IsGameOver(Coords coords)
         {                        
            if ((coords.Col > 0 && coords.Col < this.Labyrinth.Size - 1) &&
@@ -64,21 +75,13 @@ namespace LabirynthGame
            {
                return true;
            }
-
            return true;
         }
 
-        private bool IsGameEnded(Coords coords)
-        {
-            if (coords.Row == this.Labyrinth.Size - 1 || coords.Row == 0 || coords.Col == this.Labyrinth.Size - 1 || coords.Col == 0)
-            {
-                return true;
-            }
-
-            return false;
-        }
-
-
+        /// <summary>
+        /// The method reads and executes the commands from the user
+        /// </summary>
+        /// <param name="cmd">input string</param>
         private void ExecuteCommand(string cmd)
         {
             switch (cmd.ToUpper())
@@ -119,6 +122,9 @@ namespace LabirynthGame
                     }
                 case "EXIT":
                     {
+                        //exit still not implemented corectly
+                        isGameOn = false;
+                        Console.WriteLine("Good Bye");
                         break;
                     }
                 default:

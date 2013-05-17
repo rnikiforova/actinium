@@ -6,10 +6,11 @@ using System.Threading.Tasks;
 
 namespace LabirynthGame
 {
+    /// <summary>
+    /// Player class 
+    /// </summary>
     public class Player : GameObject
     {
-        private int points;
-
         public int Points { get; private set; }
 
         private string name;
@@ -39,6 +40,12 @@ namespace LabirynthGame
         
         }
 
+        /// <summary>
+        /// Constructor
+        /// </summary>
+        /// <param name="symbol">char symbol</param>
+        /// <param name="row">row</param>
+        /// <param name="col">col</param>
         public Player(char symbol, int row, int col)
             : base(symbol, row, col)
         {
@@ -46,6 +53,10 @@ namespace LabirynthGame
             this.InitCoords = initCoords;
         }               
 
+        /// <summary>
+        /// Updates the coordinates and every time when the method is called it updates the players moves
+        /// </summary>
+        /// <param name="coords">Coordinates</param>
         public void Update(Coords coords)
         {
             this.Row = coords.Row;
