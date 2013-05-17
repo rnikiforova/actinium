@@ -15,8 +15,8 @@ namespace LabirynthGame
         public IRenderer Renderer { get;  set; }
         public IController Controller { get;  set; }
         public ScoreBoard ScoreBoard { get; set; }
-
-        private IField Labyrinth;        
+        private IField Labyrinth;
+        private static bool isGameOn = true;
         
         /// <summary>
         /// Constructor
@@ -32,8 +32,6 @@ namespace LabirynthGame
             this.Controller = controller;
             this.ScoreBoard = scoreBoard;
         }
-
-        private static bool isGameOn = true;
 
         /// <summary>
         /// Starts the game execution
@@ -136,7 +134,5 @@ namespace LabirynthGame
                     }
             }
         }
-
-        
     }
 }

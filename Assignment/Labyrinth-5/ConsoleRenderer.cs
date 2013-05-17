@@ -8,7 +8,6 @@ namespace LabirynthGame
 {
     public class ConsoleRenderer : IRenderer
     {
-
         /// <summary>
         /// The method prints the labyrinth matrix to the console
         /// </summary>

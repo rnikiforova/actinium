@@ -67,6 +67,5 @@ namespace LabirynthGame
 
             return sb.ToString();
         }
-
     }
 }

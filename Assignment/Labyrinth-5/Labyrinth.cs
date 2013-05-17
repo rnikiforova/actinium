@@ -184,5 +184,10 @@ namespace LabirynthGame
             }
         }
 
+        public void TestMatrix(char[,] testMatrix)
+        {
+            this.matrix = testMatrix;
+        }
+
     }
 }

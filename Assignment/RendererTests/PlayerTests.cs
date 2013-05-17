@@ -29,6 +29,22 @@ namespace RendererTests
         }
 
         [TestMethod]
+        [ExpectedException(typeof(ArgumentException))]
+        public void NegativeRowTest()
+        {
+            Player testPlayer = new Player('*', -3, 2);
+            Assert.Fail("Had to throw an exception because of invalid row");
+        }
+
+        [TestMethod]
+        [ExpectedException(typeof(ArgumentException))]
+        public void NegativeColTest()
+        {
+            Player testPlayer = new Player('*', 3, -2);
+            Assert.Fail("Had to throw an exception because of invalid col");
+        }
+
+        [TestMethod]
         public void UpdateTest()
         {
             Player testPlayer = new Player('*', 3, 3);
@@ -71,8 +87,5 @@ namespace RendererTests
             var currName = testPlayer.Name;
             testPlayer.Name = "Player name";
         }
-
-        
-
     }
 }

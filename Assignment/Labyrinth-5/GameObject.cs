@@ -39,7 +39,6 @@ namespace LabirynthGame
             {
                 if ((int)value < 33 || (int)value > 44)
                 {
-
                     string chars = PrintAllowedChars();
 
                     throw new ArgumentOutOfRangeException(string.Format("Inccorect symbol. You can use: {0}.", chars));
@@ -49,7 +48,6 @@ namespace LabirynthGame
                     this.symbol = value;
                 }
             }
-
         }
 
         /// <summary>

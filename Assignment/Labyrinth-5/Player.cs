@@ -35,9 +35,7 @@ namespace LabirynthGame
                 }
 
                 this.name = value;
-                
             }
-        
         }
 
         /// <summary>

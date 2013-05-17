@@ -59,7 +59,6 @@
     <Compile Include="IRenderer.cs" />
     <Compile Include="KeyboardController.cs" />
     <Compile Include="LabirynthTest.cs" />
-    <Compile Include="OrignalCode.cs" />
     <Compile Include="Labyrinth.cs" />
     <Compile Include="Player.cs" />
     <Compile Include="ScoreBoard.cs" />

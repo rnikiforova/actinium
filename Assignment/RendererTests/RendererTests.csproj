@@ -53,8 +53,10 @@
     <Compile Include="UnitTest1.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="PlayerTests.cs" />
-    <Compile Include="ScoreBoardTest.cs" />
+    <Compile Include="ScoreBoardTests.cs" />
     <Compile Include="LabyrinthTest.cs" />
+    <Compile Include="Engine.cs" />
+    <Compile Include="KeyboardControllersTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Labyrinth-5\LabirynthGame.csproj">

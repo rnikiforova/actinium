@@ -9,7 +9,7 @@ namespace LabirynthGame
     /// <summary>
     /// The class manages the input from the Engine
     /// </summary>
-    class KeyboardController : IController
+    public class KeyboardController : IController
     {
         /// <summary>
         /// Updates the coordinates and force the objects which use it to move left in a matrix

@@ -9,7 +9,6 @@ D:\My files\_GITHUB\actinium\Assignment\RendererTests\obj\Debug\RendererTests.pd
 C:\Users\Stoian Dosev\Documents\GitHub\actinium\Assignment\RendererTests\bin\Debug\RendererTests.dll
 C:\Users\Stoian Dosev\Documents\GitHub\actinium\Assignment\RendererTests\bin\Debug\RendererTests.pdb
 C:\Users\Stoian Dosev\Documents\GitHub\actinium\Assignment\RendererTests\bin\Debug\LabirynthGame.exe
-C:\Users\Stoian Dosev\Documents\GitHub\actinium\Assignment\RendererTests\bin\Debug\PowerCollections.dll
 C:\Users\Stoian Dosev\Documents\GitHub\actinium\Assignment\RendererTests\bin\Debug\LabirynthGame.pdb
 C:\Users\Stoian Dosev\Documents\GitHub\actinium\Assignment\RendererTests\obj\Debug\RendererTests.csprojResolveAssemblyReference.cache
 C:\Users\Stoian Dosev\Documents\GitHub\actinium\Assignment\RendererTests\obj\Debug\RendererTests.dll
